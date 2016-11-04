@@ -30,14 +30,16 @@ def get_env_variable(var_name):
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'e19zmj5(i%984w+29ag6(c-69%7#agt2g_djmljj!oi7%9^ikx'
+SECRET_KEY = get_env_variable('LRAPP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 ENV_ROLE = get_env_variable('ENV_ROLE')
+LRAPP_DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
     TEMPLATE_DEBUG = DEBUG
+    LRAPP_DB_PASS = get_env_variable('LRAPP_DB_PASS')
 
 ALLOWED_HOSTS = []
 
@@ -92,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'lrappDB',
         'USER': 'postgres',
-        'PASSWORD': '1q2w3e',
+        'PASSWORD': LRAPP_DB_PASS,
         'HOST': '/tmp',
         'PORT': '5432',
     }
