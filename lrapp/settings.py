@@ -14,8 +14,7 @@ import os
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Handling Key Import Errors
 def get_env_variable(var_name):
@@ -38,7 +37,6 @@ ENV_ROLE = get_env_variable('ENV_ROLE')
 LRAPP_DB_PASS = False
 if ENV_ROLE == 'development':
     DEBUG = True
-    TEMPLATE_DEBUG = DEBUG
     LRAPP_DB_PASS = get_env_variable('LRAPP_DB_PASS')
 
 ALLOWED_HOSTS = []
@@ -53,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lrapp.rango',
 ]
 
 MIDDLEWARE = [
@@ -70,9 +69,10 @@ ROOT_URLCONF = 'lrapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
