@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     # specific category
-    url(r'^category/(?P<category_slug_name>[\w\-\d]+)/$', views.category_detail, name='category_detail'),
+    url(r'^category/(?P<category_slug_name>[\w\-]+)/$', views.category_detail, name='category_detail'),
 
     # add category
     url(r'^add_category/new/$', views.add_or_update_category, name='add_category'),

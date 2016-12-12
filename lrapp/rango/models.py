@@ -4,8 +4,18 @@ from __future__ import unicode_literals
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
+from django.template import Library
+from django.template.defaultfilters import stringfilter
 from django.contrib.auth.models import User
+
+register = Library()
+
+
+@register.filter(is_safe=True)
+@stringfilter
+def _slugify(value):
+    return slugify(value, allow_unicode=True)
 
 
 class Category(models.Model):
@@ -15,8 +25,7 @@ class Category(models.Model):
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-
-        self.slug = slugify(self.name)
+        self.slug = _slugify(self.name)
         super(Category, self).save(*args, **kwargs)
 
     def __unicode__(self):
