@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block body_block %}
+    <div class="category-detail">
+        {% if category %}
+            <div class="c-header">
+            <h1>{{ category_name }}</h1>
+            {% if user.is_authenticated %}
+                <ul>
+                    <li><a class="button" href="{% url 'rango:add_page' category.slug %}">新增链接</a></li>
+                    <li><a class="button" href="{% url 'account:add_or_remove_fav_category' category.slug %}?the_page=category_detail">
+                        {% if category in fc_list %}
+                            取消收藏
+                        {% else %}
+                            收藏
+                        {% endif %}
+                    </a></li>
+                </ul>
+            {% endif %}
+            </div>
+            {% if pages %}
+                <p>下面是此主题容器收集的所有链接。</p>
+                <p>你可以登录后添加新的连接，或是去你的主页修改你创建的容器和连接。</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 15%">标题</th>
+                            <th>说明</th>
+                            {% if user.is_authenticated %}
+                                <th style="width: 12%">是否收藏</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for page in pages %}
+                            <tr>
+                                <td><a target="_blank" href="{{ page.url }}">{{ page.title }}</a></td>
+                                <td>{{ page.desc }}</td>
+                                {% if user.is_authenticated %}
+                                    <td><a class="button" href="{% url 'account:add_or_remove_fav_page' page.pk %}?the_page=category_detail">
+                                        {% if page in fp_list %}
+                                            取消收藏
+                                        {% else %}
+                                            收藏
+                                        {% endif %}
+                                    </a></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>此主题容器下未没有链接，你可以登录后添加。</p>
+            {% endif %}
+        {% else %}
+            <p>指定容器不存在</p>
+        {% endif %}
+    </div>
+{% endblock body_block %}

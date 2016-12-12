@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}所有链接{% endblock %}
+
+{% block body_block %}
+    <div class="form display-all">
+        <h1>所有链接</h1>
+        <form method="get" action="{% url 'topic:all_pages' %}">
+            <label for="page-search"></label>
+            <input type="search" id="page-search" name="page_title" value="{{ request.GET.page_title }}" />
+            <input type="submit" value="搜索" />
+        </form>
+        <table>
+            {% if pages %}
+                <thead>
+                    <tr>
+                        <th>链接标题</th>
+                        <th>容器名</th>
+                        <th>创建者</th>
+                    </tr>
+                </thead>
+            {% endif %}
+            <tbody>
+            {% for page in pages %}
+                <tr>
+                    <td class="page-display-first"><a target="_blank" href="{{ page.url }}">{{ page.title }}</a></td>
+                    <td><a href="{% url 'rango:category_detail' page.category.slug %}">({{ page.category.name }})</a></td>
+                    <td class="page-display-last"><a href="{% url 'account:homepage' page.owner.pk %}">{{ page.owner.username }}</a></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <th>Not found.</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if is_paginated %}
+            <div class="pagination">
+                <ul>
+                    <li><a href="{% url 'topic:all_pages' %}?page=1
+                    {% if request.GET.page_title %}&page_title={{ request.GET.page_title }}{% endif %}">首页</a></li>
+                    {% if page_obj.has_previous %}
+                        <li><a href="{% url 'topic:all_pages' %}?page={{ page_obj.previous_page_number }}
+                        {% if request.GET.page_title %}&page_title={{ request.GET.page_title }}{% endif %}">Prev</a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                        <li><a href="{% url 'topic:all_pages' %}?page={{ page_obj.next_page_number }}
+                        {% if request.GET.page_title %}&page_title={{ request.GET.page_title }}{% endif %}">Next</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'topic:all_pages' %}?page={{ page_obj.paginator.num_pages }}
+                    {% if request.GET.page_title %}&page_title={{ request.GET.page_title }}{% endif %}">末页</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

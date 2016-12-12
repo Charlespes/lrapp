@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if edit %}修改容器{% else %}新增容器{% endif %}{% endblock %}
+
+{% block body_block %}
+    <div class="form{% if not edit %} create-category{% endif %}">
+        <h1>{% if category.slug %}修改容器{% else %}新增容器{% endif %}</h1>
+        <form id="category_form" method="post" action="{% if category.slug %}{% url 'rango:edit_category' category.slug %}{% else %}{% url 'rango:add_category' %}{% endif %}" >
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                <p>{{ field.help_text }}</p>
+                <label for="id_name">名称:</label>
+                {{ field }}
+            {% endfor %}
+
+            <input type="submit" name="submit" value="{% if edit %}确认{% else %}创建{% endif %}" />
+        </form>
+    </div>
+{% endblock body_block %}

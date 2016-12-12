@@ -1,0 +1,5 @@
+{% for c in categories %}
+    <li><a href="{% url 'rango:category_detail' c.slug %}">{{ c.name }}</a></li>
+{% empty %}
+    <p>Not found</p>
+{% endfor %}

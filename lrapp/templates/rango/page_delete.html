@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}删除链接{% endblock %}
+
+{% block body_block %}
+<h1>你确定要删除{{ category_name }}下的{{ page.title }}的链接吗？</h1>
+<form method="post" action="">
+    {% csrf_token %}
+    <input type="button" value="Cancel" onclick="window.history.go(-1)" />
+    <input type="submit" name="submit" value="Confirm" />
+</form>
+{% endblock body_block %}

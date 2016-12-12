@@ -1,0 +1,170 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+}
+
+
+body {
+    width: 595px;
+    height: 842px;
+    border: 1px solid black;
+    background: rgba(14, 14, 14, 0.16);
+    margin: 40px auto 50px;
+    /*overflow: hidden;*/
+}
+
+body > a {
+    position: fixed;
+    top: 10px;
+    left: 320px;
+    /*color: #b7a710;*/
+}
+
+body > a:hover {
+    text-decoration: none;
+    color: #b71102
+}
+
+img {
+    width: 120px;
+    height: 168px;
+}
+
+.header {
+    text-align: center;
+    margin: 0;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 15px 0;
+    background: rgba(100, 160, 155, 0.15);
+    box-sizing: border-box;
+    font-family: "华文宋体", sans-serif;
+    font-weight: 900;
+}
+
+.sidebar, .content {
+    float: left;
+}
+
+/*左边盒子*/
+.sidebar {
+    width: 35%;
+    /*border: 1px solid black;*/
+    background: rgba(255, 127, 80, 0.15);
+}
+
+/*右边盒子*/
+.content {
+    width: 65%;
+    background: rgba(255, 204, 0, 0.16);
+}
+
+/*左边第一个盒子picture*/
+.picture {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.picture h1 {
+    margin: 0 10px;
+    font-family: "华文楷体", sans-serif;
+}
+
+.picture p {
+    margin: 0;
+    font-size: 80%;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 120%;
+    font-family: "华文楷体", sans-serif;
+    margin: 15px 0 8px 10px;
+}
+
+.profile ul {
+    margin: 8px 0;
+    padding-left: 12px;
+}
+
+.sidebar li {
+    list-style: none;
+    /*font-size: 90%;*/
+}
+
+.profile span {
+    margin-right: 10px;
+}
+
+.email:before {
+    content: "\2709";
+    margin-right: 10px;
+}
+
+.skill ul {
+    padding-left: 12px;
+}
+
+.skill li {
+    width: 100px;
+}
+
+.skill .first:after, .skill .second:after, .skill .third:after, .skill .fourth:after {
+    margin-left: 12px;
+}
+
+.skill .first:after {
+    content: "\2665\2665\2665\2665\2661"
+}
+
+.skill .second:after, .skill .third:after {
+    content: "\2665\2665\2665\2661\2661"
+}
+
+.skill .fourth:after {
+    content: "\2665\2665\2661\2661\2661"
+}
+
+.sidebar ul {
+    padding-left: 12px;
+}
+
+.extra ul {
+    margin-bottom: 34px;
+}
+
+/*右边盒子content*/
+
+.content h2 {
+    padding-top: 30px;
+}
+
+.content p {
+    margin: 10px 10px 10px 20px;
+    font-size: 80%;
+}
+
+.content li {
+    list-style: none;
+    font-size: 80%;
+}
+
+.content .experience p {
+    font-size: 90%;
+}
+
+.experience {
+    margin-bottom: 188px;
+}
+
+.content a:hover {
+    color: #ff241c;
+    text-decoration: none;
+}

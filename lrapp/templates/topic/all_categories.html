@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}所有容器{% endblock %}
+
+{% block body_block %}
+    <div class="form display-all">
+        <h1>所有容器:</h1>
+        <form method="get" action="{% url 'topic:all_categories' %}">
+            <label for="search-category"></label>
+            <input type="search" id="search-category" name="category" value="{{ request.GET.category }}" />
+            <input type="submit" value="搜索" />
+        </form>
+        <table>
+            {% if categories %}
+                <thead>
+                    <tr>
+                        <th class="cate-display">容器名</th>
+                        <th>创建者</th>
+                    </tr>
+                </thead>
+            {% endif %}
+            <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td><a href="{% url 'rango:category_detail' category.slug %}">{{ category.name }}</a></td>
+                        <td><a href="{% url 'account:homepage' category.owner.pk %}">{{ category.owner.username }}</a></td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <th>Not Found.</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if is_paginated %}
+            <div class="pagination">
+                <ul>
+                    <li><a href="{% url 'topic:all_categories' %}?page=1
+                    {% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">首页</a></li>
+                    {% if page_obj.has_previous %}
+                        <li><a href="{% url 'topic:all_categories' %}?page={{ page_obj.previous_page_number }}
+                        {% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Prev</a></li>
+                    {% endif %}
+{#                    <li>{{ page_obj.number }}</li>#}
+                    {% if page_obj.has_next %}
+                        <li><a href="{% url 'topic:all_categories' %}?page={{ page_obj.next_page_number }}
+                        {% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">Next</a></li>
+                    {% endif %}
+{#                    <li>{{ page_obj.number }}</li>#}
+                    <li><a href="{% url 'topic:all_categories' %}?page={{ page_obj.paginator.num_pages }}
+                    {% if request.GET.category %}&category={{ request.GET.category }}{% endif %}">末页</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

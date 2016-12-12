@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}首页{% endblock %}
+
+{% block body_block %}
+<p class="index-text">在主题容器下添加相关网页以收藏</p>
+<div class="index">
+    <h1>收藏最多的容器:</h1>
+    {% if categories %}
+    <ul>
+        {% for category in categories %}
+        <li><a class="first" href="{% url 'rango:category_detail' category.slug %}">{{ category.name }}</a>
+            <span>{{ category.likes }}</span>
+            {% if user.is_authenticated %}
+                <a class="button" href="{% url 'account:add_or_remove_fav_category' category.slug %}?the_page=index">
+                {% if category in fc_list %}
+                    取消收藏
+                {% else %}
+                    收藏
+                {% endif %}
+                </a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+</div>
+
+<div class="index">
+    <h1>收藏最多的网页:</h1>
+    {% for page in pages %}
+        <ul>
+            <li>
+                <a target="_blank" class="first" href="{{ page.url }}">{{ page.title }}</a>
+                <span>{{ page.likes }}</span>
+                {% if user.is_authenticated %}
+                <a class="button" href="{% url 'account:add_or_remove_fav_page' page.pk %}?the_page=index">
+                    {% if page in fp_list %}
+                        取消收藏
+                    {% else %}
+                        收藏
+                    {% endif %}
+                </a>
+                {% endif %}
+            </li>
+        </ul>
+    {% empty %}
+        <strong>There are no pages present.</strong>
+    {% endfor %}
+
+</div>
+{% endblock %}

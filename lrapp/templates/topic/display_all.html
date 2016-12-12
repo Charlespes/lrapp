@@ -1,0 +1,15 @@
+<p>查看全部</p>
+<ul>
+    <li><a href="{% url 'topic:all_categories' %}">所有容器</a></li>
+    <li><a href="{% url 'topic:all_pages' %}">所有链接</a></li>
+</ul>
+
+{% if user.is_authenticated %}
+<p>主页目录</p>
+<ul>
+    <li><a href="{% url 'account:homepage' user.id %}#collected_category">收藏的容器</a></li>
+    <li><a href="{% url 'account:homepage' user.id %}#collected_page">收藏的连接</a></li>
+    <li><a href="{% url 'account:homepage' user.id %}#created_category">创建的容器</a></li>
+    <li><a href="{% url 'account:homepage' user.id %}#created_page">创建的连接</a></li>
+</ul>
+{% endif %}

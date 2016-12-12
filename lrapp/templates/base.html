@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rango - {% block title %}{% endblock title %}</title>
+    <link rel="icon" href="{{ STATIC_URL }}images/duck.ico" type="img/png">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/css.css">
+</head>
+<body>
+    <div class="header">
+        <ul>
+            {% if user.is_authenticated %}
+                <li class="right last"><a href="{% url 'register:logout' %}">退出</a></li>
+                <li class="right create-category"><a href="{% url 'rango:add_category' %}">新增容器</a></li>
+                <li class="right homepage"><a href="{% url 'account:homepage' user.pk %}">主页</a></li>
+            {% else %}
+                <li class="right last register"><a href="{% url 'register:registration' %}">注册</a></li>
+                <li class="right signup"><a href="{% url 'register:login' %}">登录</a></li>
+            {% endif %}
+
+            <li class="left first"><a href="{% url 'topic:index' %}">首页</a></li>
+            <li class="left"><a href="{% url 'topic:about' %}">About</a></li>
+        </ul>
+    </div>
+
+    <div class="c-left">
+        <p class="search-text">Find a category</p>
+            <label for="suggestion">
+            <input class="search-query" type="text" name="suggestion" id="suggestion" />
+            </label>
+
+        <div id="cats">
+
+        </div>
+
+    </div>
+
+    <div class="c-center">
+        {% block body_block %}{% endblock body_block %}
+    </div>
+
+    <div class="c-right">
+        {% include 'topic/display_all.html' %}
+    </div>
+
+
+</body>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}js/app.js"></script>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if edit %}修改连接{% else %}新增链接{% endif %}{% endblock %}
+
+{% block body_block %}
+<div class="form">
+    <h1>{% if edit %}修改连接{% else %}新增链接{% endif %}</h1>
+    <p>所属容器: {{ category.name }}</p>
+        <form id="page_form" method="post" action="{% if edit %}{% url 'rango:edit_page' category.slug page.id %}{% else %}{% url 'rango:add_page' category.slug %}{% endif %}" >
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>标题:</td>
+                        <td>{{ form.title }}</td>
+                        <td>{{ form.title.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>地址:</td>
+                        <td>{{ form.url }}</td>
+                        <td>{{ form.url.errors }}</td>
+                    </tr>
+                    <tr>
+                        <td>说明:</td>
+                        <td>{{ form.desc }}</td>
+                        <td>{{ form.desc.errors }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <input type="submit" name="submit" value="{% if edit %}确认{% else %}创建{% endif %}" />
+        </form>
+</div>
+{% endblock body_block %}

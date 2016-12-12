@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}个人主页{% endblock title %}
+
+{% block body_block %}
+    <div class="homepage">
+        {% if name %}
+            <h1>{% if name == user %}<span class="personal-homepage"></span>你的主页{% else %}{{ name }}的主页{% endif %}</h1>
+            <ul>
+                <li><a class="button" href="#collected_category">收藏的容器</a></li>
+                <li><a class="button" href="#collected_page">收藏的链接</a></li>
+                <li><a class="button" href="#created_category">创建的容器</a></li>
+                <li><a class="button" href="#created_page">创建的连接</a></li>
+            </ul>
+            <div id="collected_category">
+                {% if categories %}
+                    <p>收藏的容器:</p>
+                    <ul>
+                        {% for category in categories %}
+                            <li><a href="{% url 'rango:category_detail' category.slug %}">{{ category.name }}</a>
+                                {% if user.is_authenticated and name == user %}
+                                    <a class="right button" href="{% url "account:add_or_remove_fav_category" category.slug %}?the_page=homepage">取消收藏</a>
+                                {% endif %}
+                            </li>
+
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>无收藏的容器。</p>
+                {% endif %}
+            </div>
+            <div id="collected_page">
+                {% if pages %}
+                    <p>收藏的链接:</p>
+                    <ul>
+                        {% for page in pages %}
+                            <li><a target="_blank" href="{{ page.url }}">{{ page.title }}</a>
+                                {% if user.is_authenticated and name == user %}
+                                    <a class="right button" href="{% url "account:add_or_remove_fav_page" page.pk %}?the_page=homepage">取消收藏</a>
+                                {% endif %}
+                                <a class="right" href="{% url 'rango:category_detail' page.category.slug %}">({{ page.category.name }})</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>无收藏的链接。</p>
+                {% endif %}
+            </div>
+            <div id="created_category">
+                {% if created_categories %}
+                    <p>创建的容器:</p>
+                    <ul>
+                        {% for category in created_categories %}
+                            <li><a href="{% url "rango:category_detail" category.slug %}">{{ category.name }}</a>
+                                {% if user.is_authenticated and name == user %}
+                                    <a class="right button" href="{% url "rango:edit_category" category.slug %}">Edit</a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>没有创建的容器。</p>
+                {% endif %}
+            </div>
+            <div id="created_page">
+                {% if created_pages %}
+                    <p>创建的链接:</p>
+                    <ul>
+                        {% for page in created_pages %}
+                            <li><a target="_blank" href="{{ page.url }}">{{ page.title }}</a>
+                                {% if user.is_authenticated and name == user %}
+                                    <a class="right button" href="{% url "rango:page_delete" page.pk %}">Delete</a>
+                                    <a class="right button" href="{% url "rango:edit_page" page.category.slug page.pk %}">Edit</a>
+                                {% endif %}
+                                <a class="right" href="{% url "rango:category_detail" page.category.slug %}">({{ page.category.name }})</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>没有创建连接。</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <p>用户名不存在。</p>
+        {% endif %}
+    </div>
+{% endblock body_block %}

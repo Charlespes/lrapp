@@ -16,6 +16,7 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+
 # Handling Key Import Errors
 def get_env_variable(var_name):
     """ Get the environment variable or return exception """
@@ -51,7 +52,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'lrapp.topic',
+    'lrapp.register',
     'lrapp.rango',
+    'lrapp.account'
 ]
 
 MIDDLEWARE = [
@@ -78,6 +82,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -92,7 +97,7 @@ WSGI_APPLICATION = 'lrapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'lrappDB',
+        'NAME': 'LrappDB',
         'USER': 'postgres',
         'PASSWORD': LRAPP_DB_PASS,
         'HOST': '/tmp',
@@ -125,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -138,7 +143,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
+# STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/account/login/'
+print BASE_DIR
