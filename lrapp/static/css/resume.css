@@ -27,7 +27,8 @@ body > a {
 
 body > a:hover {
     text-decoration: none;
-    color: #b71102
+    color: #b71102;
+    font-weight: 600;
 }
 
 img {
@@ -43,7 +44,7 @@ img {
 .header h1 {
     margin: 0;
     padding: 15px 0;
-    background: rgba(100, 160, 155, 0.15);
+    background: rgba(100, 160, 155, 0.52);
     box-sizing: border-box;
     font-family: "华文宋体", sans-serif;
     font-weight: 900;
@@ -57,13 +58,13 @@ img {
 .sidebar {
     width: 35%;
     /*border: 1px solid black;*/
-    background: rgba(255, 127, 80, 0.15);
+    background: rgba(147, 112, 219, 0.51);
 }
 
 /*右边盒子*/
 .content {
     width: 65%;
-    background: rgba(255, 204, 0, 0.16);
+    background: rgba(253, 255, 253, 0.62);
 }
 
 /*左边第一个盒子picture*/
@@ -108,6 +109,10 @@ h2 {
     margin-right: 10px;
 }
 
+.website {
+    font-size: 80%;
+}
+
 .skill ul {
     padding-left: 12px;
 }
@@ -137,7 +142,7 @@ h2 {
 }
 
 .extra ul {
-    margin-bottom: 34px;
+    margin-bottom: 20px;
 }
 
 /*右边盒子content*/
@@ -161,10 +166,21 @@ h2 {
 }
 
 .experience {
-    margin-bottom: 188px;
+    margin-bottom: 100px;
 }
 
 .content a:hover {
     color: #ff241c;
     text-decoration: none;
+    font-weight: 600;
+}
+
+#content-link {
+    color: rgb(77, 77, 77);
+}
+
+#content-link:hover {
+    text-decoration: none;
+    color: #ff241c;
+    font-weight: normal;
 }
