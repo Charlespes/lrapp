@@ -16,7 +16,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class PageAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'owner')
-    exclude = ('owner', 'category')
+    exclude = ('owner',)
 
     def save_model(self, request, obj, form, change):
         if not change:
