@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13100370-a4a7-4b09-b111-9c7b8dc1412f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/image.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/decorators.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/account/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rango/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/register/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/register/urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/css.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/resume.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/account/homepage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/cats.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/rango/add_or_edit_category.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/rango/add_or_edit_page.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/rango/category.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/rango/page_delete.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/registration/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/registration/register.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/topic/about.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/topic/all_categories.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/topic/all_pages.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/topic/display_all.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/topic/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rango/admin.py" afterPath="$PROJECT_DIR$/rango/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rango/models.py" afterPath="$PROJECT_DIR$/rango/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rango/views.py" afterPath="$PROJECT_DIR$/rango/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/urls.py" afterPath="$PROJECT_DIR$/urls.py" />
     </list>
     <ignored path="lrapp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,11 +60,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="css.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="css.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/css.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5771812">
+            <state vertical-scroll-proportion="-7.1666665">
               <caret line="354" column="10" selection-start-line="354" selection-start-column="10" selection-end-line="354" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.55279505">
+              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -192,10 +173,10 @@
         <option value="$PROJECT_DIR$/templates/topic/all_categories.html" />
         <option value="$PROJECT_DIR$/templates/topic/all_pages.html" />
         <option value="$PROJECT_DIR$/templates/account/homepage.html" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/templates/topic/about.html" />
         <option value="$PROJECT_DIR$/static/css/resume.css" />
         <option value="$PROJECT_DIR$/static/css/css.css" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
@@ -205,8 +186,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
-    <option name="y" value="77" />
+    <option name="x" value="211" />
+    <option name="y" value="61" />
     <option name="width" value="1300" />
     <option name="height" value="644" />
   </component>
@@ -699,7 +680,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="77" width="1300" height="644" extended-state="1" />
+    <frame x="211" y="61" width="1300" height="644" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22903226" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1078,14 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4409938">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/topic/about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.916666">
@@ -1112,8 +1085,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/css.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5771812">
+        <state vertical-scroll-proportion="-7.1666665">
           <caret line="354" column="10" selection-start-line="354" selection-start-column="10" selection-end-line="354" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55279505">
+          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding />
         </state>
       </provider>

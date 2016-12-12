@@ -40,7 +40,7 @@ if ENV_ROLE == 'development':
     DEBUG = True
     LRAPP_DB_PASS = get_env_variable('LRAPP_DB_PASS')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -149,4 +149,7 @@ STATICFILES_DIRS = (
 )
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/account/login/'
-print BASE_DIR
+
+if ENV_ROLE == 'production':
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
