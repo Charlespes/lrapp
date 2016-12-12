@@ -33,7 +33,7 @@ def get_env_variable(var_name):
 SECRET_KEY = get_env_variable('LRAPP_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ENV_ROLE = get_env_variable('ENV_ROLE')
 LRAPP_DB_PASS = False
 if ENV_ROLE == 'development':
