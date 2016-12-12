@@ -352,6 +352,10 @@ tbody td {
     color: rgb(156, 148, 160);
 }
 
+strong {
+    color: rgb(156, 148, 160);
+}
+
 .form h1 {
     margin-bottom: 20px;
 }
