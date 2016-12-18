@@ -148,11 +148,11 @@ h2 {
 /*右边盒子content*/
 
 .content h2 {
-    padding-top: 30px;
+    /*padding-top: 5px;*/
 }
 
 .content p {
-    margin: 10px 10px 10px 20px;
+    margin: 6px 10px 6px 20px;
     font-size: 80%;
 }
 
