@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'lrapp.topic',
     'lrapp.register',
     'lrapp.rango',
-    'lrapp.account'
+    'lrapp.account',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,7 @@ LOGIN_URL = '/account/login/'
 if ENV_ROLE == 'production':
     import dj_database_url
     DATABASES['default'] = dj_database_url.config()
+
+REST_FRAMEWORK = {
+    "PAGE_SIZE": 5
+}

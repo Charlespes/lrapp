@@ -19,7 +19,7 @@ def _slugify(value):
 
 
 class Category(models.Model):
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(User, related_name='categories')
     name = models.CharField(max_length=128, unique=True)
     likes = models.IntegerField(default=0)
     slug = models.SlugField()
@@ -33,8 +33,8 @@ class Category(models.Model):
 
 
 class Page(models.Model):
-    owner = models.ForeignKey(User)
-    category = models.ForeignKey(Category)
+    owner = models.ForeignKey(User, related_name='pages')
+    category = models.ForeignKey(Category, related_name='contain_pages')
     title = models.CharField(max_length=128)
     url = models.CharField(max_length=128)
     likes = models.IntegerField(default=0)
